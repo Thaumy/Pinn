@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: kotlin-stdlib-jdk8-1.4.21.jar kotlin-serialization-1.4.21.ja
+ r kotlin-test-annotations-common-1.4.21.jar mirai-core-utils-jvm-2.0-M2
+ .jar kotlinx-serialization-protobuf-jvm-1.0.1.jar kotlinx-io-0.1.16.jar
+  kotlin-stdlib-1.4.21.jar junit-jupiter-engine-5.2.0.jar okio-jvm-2.6.0
+ .jar kotlinx-serialization-json-jvm-1.0.1.jar ktor-http-cio-jvm-1.5.0.j
+ ar ktor-http-jvm-1.5.0.jar kotlin-reflect-1.4.21.jar kotlin-test-junit5
+ -1.4.21.jar kotlinx-coroutines-io-jvm-0.1.16.jar ktor-client-core-jvm-1
+ .5.0.jar kotlin-gradle-plugin-api-1.4.21.jar ktor-client-okhttp-jvm-1.5
+ .0.jar slf4j-api-1.7.30.jar ktor-io-jvm-1.5.0.jar opentest4j-1.1.0.jar 
+ atomicfu-common-0.14.1.jar kotlinx-serialization-core-jvm-1.0.1.jar mir
+ ai-core-jvm-2.0-M2.jar kotlin-test-1.4.21.jar kotlinx-coroutines-io-0.1
+ .16.jar junit-platform-engine-1.2.0.jar annotations-13.0.jar bcprov-jdk
+ 15on-1.64.jar junit-jupiter-api-5.2.0.jar ktor-network-jvm-1.5.0.jar at
+ omicfu-jvm-0.14.4.jar kotlinx-coroutines-core-jvm-1.4.1.jar junit-platf
+ orm-commons-1.2.0.jar kotlin-stdlib-jdk7-1.4.21.jar kotlin-jvm-blocking
+ -bridge-jvm-1.5.0.jar kotlin-test-common-1.4.21.jar mirai-core-api-jvm-
+ 2.0-M2.jar apiguardian-api-1.0.0.jar okhttp-4.6.0.jar kotlinx-io-jvm-0.
+ 1.16.jar ktor-utils-jvm-1.5.0.jar kotlin-stdlib-common-1.4.21.jar
+

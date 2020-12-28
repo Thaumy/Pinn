@@ -14,11 +14,12 @@ repositories {
 }
 
 dependencies {
-    val miraiVersion = "2.0-M2-dev-4"
+    val miraiVersion = "2.0-M2"
 
     // 开发时使用 mirai-core-api，运行时提供 mirai-core
     api("net.mamoe:mirai-core-api:$miraiVersion")
     runtimeOnly("net.mamoe:mirai-core:$miraiVersion")
+    //runtimeOnly("net.mamoe:mirai-login-solver-selenium:1.0-dev-6")
 
     implementation(kotlin("stdlib"))
     testCompile("junit", "junit", "4.12")
