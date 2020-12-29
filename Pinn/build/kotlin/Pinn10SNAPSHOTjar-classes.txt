@@ -1,1 +1,0 @@
-C:\Users\Thaumy\Desktop\Pinn\build\classes\kotlin\main\thaumy\cn\PinnKt$main$1$1.class;C:\Users\Thaumy\Desktop\Pinn\build\classes\kotlin\main\thaumy\cn\PinnKt$main$1$miraiBot$1.class;C:\Users\Thaumy\Desktop\Pinn\build\classes\kotlin\main\thaumy\cn\PinnKt$main$1.class;C:\Users\Thaumy\Desktop\Pinn\build\classes\kotlin\main\thaumy\cn\PinnKt.class
