@@ -38,25 +38,27 @@ class BotSender(val Bot: Bot, val melon_socie_id: Long, val melon_univer_id: Lon
 }
 
 fun main(args: Array<String>): Unit = runBlocking {
-    val qqId =
-    val password = ""
+    val qqId = 2335306147L
+    val password = "h2omelon405"
 
     val Bot = BotFactory.newBot(qqId, password) {
         fileBasedDeviceInfo()
         protocol = ANDROID_PHONE
     }.alsoLogin()
 
-    val sender = BotSender(Bot, , )
+    val sender = BotSender(Bot, 917328480L, 1164772054L)
 
     sender.Socie?.sendMessage("小品已介入")
     sender.Socie?.sendMessage("当前实例:转发禁用")
     sender.Univer?.sendMessage("小品已介入")
     sender.Univer?.sendMessage("当前实例:转发可用")
 
+    var yazi_counter=0;
+
     Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
         val nick = event.sender.nick
         val content = event.message.content
-        if (event.group.id == ) {
+        if (event.group.id == 917328480L) {
             when (content) {
                 "/*" -> {
                     sender.can_to_univer = false
@@ -79,14 +81,20 @@ fun main(args: Array<String>): Unit = runBlocking {
                     else -> sender.toUniver("$nick:$content")
                 }
             }
-        } else if (event.group.id == ) {
+        } else if (event.group.id == 1164772054L) {
             if (content.contains("[图片]")) {
                 sender.toSocie(PlainText("$nick:").plus(event.message))
             } else {
                 sender.toSocie("$nick:$content")
             }
             if (content.contains("。") && event.sender.id == 2311546114) {
-                subject.sendMessage("雅子！")
+                if(yazi_counter<5){
+                    yazi_counter++
+                }else{
+                    yazi_counter=0
+                    subject.sendMessage("雅子！")
+                }
+
             }
         }
     }
