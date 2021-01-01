@@ -3,9 +3,9 @@ plugins {
     kotlin("jvm") version "1.4.10"
 }
 
-group = "thaumy.cn"
+group = "H2OM"
 version = "1.0-SNAPSHOT"
-val main_class = "thaumy.cn.PinnKt"
+val main_class = "Pinn.MainKt"
 
 tasks.withType<Jar> {
     manifest {
