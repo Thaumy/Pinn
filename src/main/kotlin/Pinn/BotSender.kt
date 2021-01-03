@@ -1,11 +1,7 @@
-package Pinn
+package Pinn;
 
-import kotlinx.coroutines.runBlocking
-import net.mamoe.mirai.BotFactory
-import net.mamoe.mirai.alsoLogin
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.message.data.*
-import net.mamoe.mirai.utils.BotConfiguration.MiraiProtocol.ANDROID_PHONE
 
 class BotSender(val Bot: Bot, val melon_socie_id: Long, val melon_univer_id: Long) {
     val Socie = Bot.getGroup(melon_socie_id)
@@ -43,25 +39,5 @@ class BotSender(val Bot: Bot, val melon_socie_id: Long, val melon_univer_id: Lon
         if (can_to_univer && instruCheck(msg.content))
             Univer?.sendMessage(msg)
     }
-}
-
-fun main(args: Array<String>): Unit = runBlocking {
-    val qqId =
-    val password = ""
-
-    val Bot = BotFactory.newBot(qqId, password) {
-        fileBasedDeviceInfo()
-        protocol = ANDROID_PHONE
-    }.alsoLogin()
-
-    val sender = BotSender(Bot, , )
-
-    ForwardSwitchTrigger(sender).open()
-    ForwardTrigger(sender).open()
-    FuckTrigger(sender).open()
-    MiyabiTrigger(sender).open()
-    SleepTrigger(sender).open()
-
-    Bot.join()
 }
 
