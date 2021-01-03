@@ -10,9 +10,7 @@ class FuckTrigger(private val BotSender: BotSender) {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (content.contains("操") || content.contains("你妈") || content.contains("我日") || content.contains("傻逼") || content.contains(
-                    "比划比划"
-                )
+            if (content.contains("sb") || content.contains("傻逼") || content.contains("比划比划") || content.contains("老逼登")
             ) {
                 subject.sendImage(File("bihuagou.jpg"))
             }

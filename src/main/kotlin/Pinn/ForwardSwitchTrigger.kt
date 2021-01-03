@@ -18,13 +18,21 @@ class ForwardSwitchTrigger(private val BotSender: BotSender) {
                         BotSender.can_to_univer = true
                         subject.sendMessage("那边能听到了哟~！")
                     }
-                    "8=(" -> {
+                    "-v" -> {
                         BotSender.can_to_socie = true
-                        subject.sendMessage("消息可以进来哟~！")
+                        subject.sendMessage("接收消息")
                     }
-                    "8===> *(" -> {
+                    "-x" -> {
                         BotSender.can_to_socie = false
-                        subject.sendMessage("拔出来了呢。。。")
+                        subject.sendMessage("拒收消息")
+                    }
+                    "v?" -> {
+                        BotSender.anonymous_to_univer = true
+                        subject.sendMessage("匿名转发启用")
+                    }
+                    "x?" -> {
+                        BotSender.anonymous_to_univer = false
+                        subject.sendMessage("匿名转发关闭")
                     }
                 }
             }
