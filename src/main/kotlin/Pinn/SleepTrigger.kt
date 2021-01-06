@@ -6,7 +6,7 @@ import net.mamoe.mirai.message.data.*
 import java.io.File
 import java.time.LocalTime
 
-class SleepTrigger(private val BotSender: BotSender) {
+object SleepTrigger {
     fun open() {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick

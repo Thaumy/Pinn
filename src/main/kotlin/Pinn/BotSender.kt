@@ -1,18 +1,37 @@
 package Pinn;
 
+import com.alibaba.fastjson.JSON
 import net.mamoe.mirai.Bot
+import net.mamoe.mirai.BotFactory
+import net.mamoe.mirai.alsoLogin
+import net.mamoe.mirai.contact.Group
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
+import net.mamoe.mirai.utils.BotConfiguration
+import org.apache.commons.io.FileUtils
+import java.io.File
 
-class BotSender(val Bot: Bot, val melon_socie_id: Long, val melon_univer_id: Long) {
-    val Socie = Bot.getGroup(melon_socie_id)
-    val Univer = Bot.getGroup(melon_univer_id)
+object BotSender {
+    val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
+    lateinit var Bot: Bot
+    lateinit var Socie: Group
+    lateinit var Univer: Group
 
     var can_to_socie = false//转发到水瓜社
     var can_to_univer = false//转发到大学
     var anonymous_to_univer = true//匿名转发到大学
 
     val instruList = listOf("/*", "*/", "-v", "-x", "v?", "x?")
+
+    //初始化Bot
+    suspend fun ready() {
+        Bot = BotFactory.newBot(config.getLong("pinn_id"), config.getString("pinn_pwd")) {
+            fileBasedDeviceInfo()
+            protocol = BotConfiguration.MiraiProtocol.ANDROID_PHONE
+        }.alsoLogin()
+        Socie = Bot.getGroup(config.getLong("melon_id"))!!
+        Univer = Bot.getGroup(config.getLong("univer_id"))!!
+    }
 
     fun instruCheck(msg: String): Boolean {
         for (el in instruList) {
@@ -49,8 +68,6 @@ class BotSender(val Bot: Bot, val melon_socie_id: Long, val melon_univer_id: Lon
                     true -> Univer?.sendMessage(content)
                 }
             }
-
-
     }
 }
 

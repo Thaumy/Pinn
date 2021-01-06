@@ -3,7 +3,7 @@ package Pinn
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 
-class ForwardSwitchTrigger(private val BotSender: BotSender) {
+object ForwardSwitchTrigger {
     fun open() {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
