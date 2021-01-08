@@ -17,6 +17,7 @@ fun main(): Unit = runBlocking {
     FuckTrigger
     MiyabiTrigger
     SleepTrigger
+    XiaJbSay
 
     BotSender.Bot.join()
 }
