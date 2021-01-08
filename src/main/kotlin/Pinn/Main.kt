@@ -11,11 +11,12 @@ import java.io.File
 fun main(): Unit = runBlocking {
 
     BotSender.ready()
-    ForwardSwitchTrigger.open()
-    ForwardTrigger.open()
-    FuckTrigger.open()
-    MiyabiTrigger.open()
-    SleepTrigger.open()
+
+    ForwardSwitchTrigger
+    ForwardTrigger
+    FuckTrigger
+    MiyabiTrigger
+    SleepTrigger
 
     BotSender.Bot.join()
 }

@@ -6,7 +6,7 @@ import net.mamoe.mirai.message.data.*
 import java.io.File
 
 object FuckTrigger {
-    fun open() {
+    init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content

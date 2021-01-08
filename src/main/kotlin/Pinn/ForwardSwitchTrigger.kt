@@ -4,7 +4,7 @@ import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 
 object ForwardSwitchTrigger {
-    fun open() {
+    init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content

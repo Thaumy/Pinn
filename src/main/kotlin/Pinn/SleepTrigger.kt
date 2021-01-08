@@ -7,7 +7,7 @@ import java.io.File
 import java.time.LocalTime
 
 object SleepTrigger {
-    fun open() {
+    init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
