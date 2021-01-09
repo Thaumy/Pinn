@@ -11,7 +11,7 @@ object SleepTrigger {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (LocalTime.now().hour in 2..5) {
+            if (LocalTime.now().hour in 2..5 && (0..100).random() < 80) {
                 subject.sendImage(File("jibamao.jpg"))
             }
         }

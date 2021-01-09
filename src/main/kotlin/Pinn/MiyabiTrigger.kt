@@ -9,7 +9,7 @@ object MiyabiTrigger {
             val nick = event.sender.nick
             val content = event.message.content
             if (content.contains("。") && event.sender.id == 2311546114) {
-                if ((0..100).random() <= 20) {
+                if ((0..100).random() < 20) {
                     subject.sendMessage("雅子！")
                 }
             }

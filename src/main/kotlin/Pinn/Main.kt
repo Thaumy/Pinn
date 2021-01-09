@@ -18,6 +18,7 @@ fun main(): Unit = runBlocking {
     MiyabiTrigger
     SleepTrigger
     XiaJbSay
+    PinnReply
 
     BotSender.Bot.join()
 }

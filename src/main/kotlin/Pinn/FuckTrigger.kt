@@ -12,7 +12,9 @@ object FuckTrigger {
             val content = event.message.content
             if (content.contains("sb") || content.contains("比划比划") || content.contains("老逼登")
             ) {
-                subject.sendImage(File("bihuagou.jpg"))
+                if ((0..100).random() < 50) {
+                    subject.sendImage(File("bihuagou.jpg"))
+                }
             }
         }
     }
