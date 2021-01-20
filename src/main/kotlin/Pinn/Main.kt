@@ -10,7 +10,7 @@ import java.io.File
 
 fun main(): Unit = runBlocking {
 
-    BotSender.ready()
+    BotSender.init()
 
     ForwardSwitchTrigger
     ForwardTrigger
@@ -19,6 +19,7 @@ fun main(): Unit = runBlocking {
     SleepTrigger
     XiaJbSay
     PinnReply
+    Ohayo
 
     BotSender.Bot.join()
 }

@@ -24,7 +24,7 @@ object BotSender {
     val instruList = listOf("/*", "*/", "-v", "-x", "v?", "x?")
 
     //初始化Bot
-    suspend fun ready() {
+    suspend fun init() {
         Bot = BotFactory.newBot(config.getLong("pinn_id"), config.getString("pinn_pwd")) {
             fileBasedDeviceInfo()
             protocol = BotConfiguration.MiraiProtocol.ANDROID_PHONE
@@ -52,6 +52,10 @@ object BotSender {
             }
 
 
+    }
+
+    suspend fun toUniver(msg: String) {
+        Univer?.sendMessage(msg)
     }
 
     suspend fun toUniver(event: GroupMessageEvent) {

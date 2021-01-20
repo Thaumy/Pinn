@@ -19,8 +19,10 @@ object PinnReply {
             val content = event.message.content
             if (event.group.id == BotSender.Univer.id) {
                 if (event.message.content.contains("小品") || event.message.content.contains("pinn") || event.message.content.contains("Pinn")) {
-                    if ((0..100).random() < 50) {
+                    if ((0..100).random() < 10) {
                         subject.sendImage(java.io.File("called.gif"))
+                    }else if ((0..100).random() < 60){
+                        subject.sendMessage("?")
                     }
                 }
             }
