@@ -10,9 +10,9 @@ object FuckTrigger {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (content.contains("sb") || content.contains("比划比划") || content.contains("老逼登")
+            if (content.contains("二逼") || content.contains("比划比划") || content.contains("老逼登")
             ) {
-                if ((0..100).random() < 50) {
+                if ((0..100).random() < 30) {
                     subject.sendImage(File("bihuagou.jpg"))
                 }
             }
