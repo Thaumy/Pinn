@@ -1,22 +1,8 @@
-@file:Suppress("DEPRECATION")
-
 package Pinn;
 
-import com.alibaba.fastjson.JSON
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import net.mamoe.mirai.Bot
-import net.mamoe.mirai.BotFactory
-import net.mamoe.mirai.alsoLogin
-import net.mamoe.mirai.contact.Contact.Companion.sendImage
-import net.mamoe.mirai.contact.Group
-import net.mamoe.mirai.event.events.GroupMessageEvent
-import net.mamoe.mirai.message.data.*
-import net.mamoe.mirai.utils.BotConfiguration
-import okhttp3.internal.notify
-import org.apache.commons.io.FileUtils
 import java.io.File
-import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.*
 import java.util.Calendar
@@ -50,26 +36,29 @@ object Ohayo {
     }
 }
 
+//起床任务
 val getUp = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            if ((0..100).random() < 60) {
+            Util.PR(60, {
                 BotSender?.toUniver("早上好！")
-            } else {
+            }, {
                 BotSender?.toUniver("哦哈哟~！")
-            }
+            })
             BotSender?.toUniverImg(File("getUp.jpg"))
         }
     }
 }
+
+//睡觉任务
 val goBed = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            if ((0..100).random() < 60) {
+            Util.PR(60, {
                 BotSender?.toUniver("睡觉觉。")
-            } else {
+            }, {
                 BotSender?.toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
-            }
+            })
             BotSender?.toUniverImg(File("goBed.jpg"))
         }
     }
