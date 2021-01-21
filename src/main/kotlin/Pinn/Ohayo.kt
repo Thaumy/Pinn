@@ -45,7 +45,7 @@ object Ohayo {
         goBedTime.set(year, month, goBedDay, 23, 0)
 
         Timer().schedule(getUp, getUpTime.time, 24 * 60 * 60 * 1000)//早上好定时任务
-        Timer().schedule(goBed, getUpTime.time, 24 * 60 * 60 * 1000)//晚安定时任务
+        Timer().schedule(goBed, goBedTime.time, 24 * 60 * 60 * 1000)//晚安定时任务
 
     }
 }
