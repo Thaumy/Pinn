@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory
 import net.mamoe.mirai.alsoLogin
+import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.contact.Group
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
@@ -52,6 +53,10 @@ object BotSender {
             }
 
 
+    }
+
+    suspend fun toUniverImg(img: File) {
+        Univer?.sendImage(img)
     }
 
     suspend fun toUniver(msg: String) {

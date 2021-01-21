@@ -53,14 +53,24 @@ object Ohayo {
 val getUp = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            BotSender?.toUniver("米娜桑！哦哈哟~~")
+            if ((0..100).random() < 60) {
+                BotSender?.toUniver("早上好！")
+            } else {
+                BotSender?.toUniver("哦哈哟~！")
+            }
+            BotSender?.toUniverImg(File("getUp.jpg"))
         }
     }
 }
 val goBed = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            BotSender?.toUniver("哦呀斯密...")
+            if ((0..100).random() < 60) {
+                BotSender?.toUniver("睡觉觉。")
+            } else {
+                BotSender?.toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
+            }
+            BotSender?.toUniverImg(File("goBed.jpg"))
         }
     }
 }
