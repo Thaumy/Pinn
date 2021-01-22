@@ -4,7 +4,7 @@ import net.mamoe.mirai.Bot
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 
-object ForwardTrigger {
+object Forward {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             if (event.group.id == BotSender.Socie?.id) {

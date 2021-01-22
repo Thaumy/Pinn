@@ -12,7 +12,7 @@ import net.mamoe.mirai.utils.BotConfiguration
 import org.apache.commons.io.FileUtils
 import java.io.File
 
-object XiaJbSay {
+object RandomReply {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick

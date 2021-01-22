@@ -45,7 +45,7 @@ val getUp = object : TimerTask() {
             }, {
                 BotSender?.toUniver("哦哈哟~！")
             })
-            BotSender?.toUniverImg(File("getUp.jpg"))
+            BotSender?.toUniverImg(File("getUp.gif"))
         }
     }
 }

@@ -1,17 +1,18 @@
 package Pinn
 
 import net.mamoe.mirai.event.events.GroupMessageEvent
+import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.message.data.*
+import java.io.File
 
-object MiyabiTrigger {
+object BiHuaGou {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (content.contains("。") && event.sender.id == 2311546114) {
-                if ((0..100).random() < 20) {
-                    subject.sendMessage("雅子！")
-                }
+            if (content.contains("二逼") || content.contains("比划比划") || content.contains("老逼登")
+            ) {
+                Util.PR(30) { subject.sendImage(File("bihuagou.jpg")) }
             }
         }
     }
