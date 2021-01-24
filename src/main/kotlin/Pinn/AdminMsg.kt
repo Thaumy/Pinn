@@ -25,7 +25,7 @@ object AdminMsg {
         val format = DateTimeFormatter.ofPattern("yy/MM/dd-HH:mm")
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val timeSpan = Duration.between(initTime, LocalDateTime.now())
-            if (event.message.content == ">pinn" && event.sender.id == 1951327599L) {
+            if (event.message.content == ">pinn") {
                 subject.sendMessage(
                     subject.uploadImage(File("called.gif").toExternalResource()).plus(
                         "build:${format.format(initTime)}\n" +
