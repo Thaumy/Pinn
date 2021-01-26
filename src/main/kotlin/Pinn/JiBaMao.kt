@@ -6,6 +6,7 @@ import net.mamoe.mirai.message.data.*
 import java.io.File
 import java.time.LocalTime
 
+
 object JiBaMao {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->

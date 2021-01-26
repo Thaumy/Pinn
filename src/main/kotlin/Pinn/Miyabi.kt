@@ -3,6 +3,7 @@ package Pinn
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 
+
 object Miyabi {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->

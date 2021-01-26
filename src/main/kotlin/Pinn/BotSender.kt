@@ -12,6 +12,7 @@ import net.mamoe.mirai.utils.BotConfiguration
 import org.apache.commons.io.FileUtils
 import java.io.File
 
+
 object BotSender {
     val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
     lateinit var Bot: Bot

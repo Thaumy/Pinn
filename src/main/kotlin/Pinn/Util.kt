@@ -12,6 +12,7 @@ import net.mamoe.mirai.utils.BotConfiguration
 import org.apache.commons.io.FileUtils
 import java.io.File
 
+
 object Util {
     //概率内发生返回true
     inline fun PR(value: Int): Boolean {

@@ -1,16 +1,6 @@
 package Pinn;
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
-import net.mamoe.mirai.message.data.content
-import java.io.File
-import java.time.Duration
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.util.*
-import java.util.Calendar
 
 
 object Counter {

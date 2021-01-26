@@ -1,8 +1,7 @@
 package Pinn
 
-import net.mamoe.mirai.Bot
 import net.mamoe.mirai.event.events.GroupMessageEvent
-import net.mamoe.mirai.message.data.*
+
 
 object Forward {
     init {

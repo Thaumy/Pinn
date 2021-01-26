@@ -12,6 +12,7 @@ import net.mamoe.mirai.utils.BotConfiguration
 import org.apache.commons.io.FileUtils
 import java.io.File
 
+
 object PinnReply {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->

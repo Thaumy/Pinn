@@ -5,6 +5,7 @@ import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.message.data.*
 import java.io.File
 
+
 object BiHuaGou {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
