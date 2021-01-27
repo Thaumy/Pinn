@@ -34,6 +34,7 @@ dependencies {
     runtimeOnly("net.mamoe:mirai-core:$miraiVersion")
     implementation(fileTree("src/main/resources/libs"))
     implementation("com.alibaba:fastjson:1.2.73")
+    implementation("mysql:mysql-connector-java:8.0.17")
     implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
 

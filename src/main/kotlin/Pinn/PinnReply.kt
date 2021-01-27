@@ -9,11 +9,7 @@ object PinnReply {
     init {
         val connMsg = MySqlConnMsg("localhost", 3306, "root", "65a1561425f744e2b541303f628963f8")
         val msm = MySqlManager(connMsg, "pinn")
-        val table = msm.GetTable("SELECT * FROM historia")
-        for (el in table) {
-            for (it in el)
-                println(it)
-        }
+
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
@@ -28,6 +24,14 @@ object PinnReply {
                     } else if (Util.PR(70)) {
                         subject.sendMessage("?")
                     }
+                }
+            }
+
+            val table = msm.GetTable("SELECT content FROM historia")
+            for (el in table) {
+                if (msgAlikeRate(content, el.get(0).toString()) > 60) {
+                    subject.sendMessage(el.get(0).toString())
+                    break
                 }
             }
         }
