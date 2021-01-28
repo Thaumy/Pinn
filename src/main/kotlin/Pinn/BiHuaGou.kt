@@ -13,7 +13,7 @@ object BiHuaGou {
             val content = event.message.content
             if (content.contains("二逼") || content.contains("比划比划") || content.contains("老逼登")
             ) {
-                Util.PR(30) { subject.sendImage(File("bihuagou.jpg")) }
+                Util.PR(30) { subject.sendImage(File("img/bihuagou.jpg")) }
             }
         }
     }

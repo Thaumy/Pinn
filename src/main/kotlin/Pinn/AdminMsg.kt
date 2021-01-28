@@ -18,7 +18,7 @@ object AdminMsg {
             val timeSpan = Duration.between(initTime, LocalDateTime.now())
             if (event.message.content == ">pinn") {
                 subject.sendMessage(
-                    subject.uploadImage(File("called.gif").toExternalResource()).plus(
+                    subject.uploadImage(File("img/called.gif").toExternalResource()).plus(
                         "build:${format.format(initTime)}\n" +
                                 "upHour:${timeSpan.toHours()}\n" +
                                 "SocieMsgCount:${Counter.SocieMsgCount}\n" +

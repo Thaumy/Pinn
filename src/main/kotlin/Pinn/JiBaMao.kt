@@ -13,7 +13,7 @@ object JiBaMao {
             val nick = event.sender.nick
             val content = event.message.content
             if (LocalTime.now().hour in 2..5 && Util.PR(60)) {
-                subject.sendImage(File("jibamao.jpg"))
+                subject.sendImage(File("img/jibamao.jpg"))
             }
         }
     }
