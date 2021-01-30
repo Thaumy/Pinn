@@ -7,10 +7,10 @@ fun main(): Unit = runBlocking {
 
     BotSender.init()
 
-    ForwardSwitch
-    Forward
+    /*ForwardSwitch
+    Forward*/
     Counter
-    AdminMsg
+    /*AdminMsg
 
     BiHuaGou
     JiBaMao
@@ -18,7 +18,7 @@ fun main(): Unit = runBlocking {
 
     RandomReply
     PinnReply
-    Ohayo
+    Ohayo*/
 
     BotSender.Bot.join()
 }
