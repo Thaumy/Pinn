@@ -15,12 +15,12 @@ import java.io.File
 
 object Util {
     //概率内发生返回true
-    inline fun PR(value: Int): Boolean {
+    fun PR(value: Int): Boolean {
         return (0..100).random() < value
     }
 
     //千分之一概率
-    inline fun PR1000(value: Int): Boolean {
+    fun PR1000(value: Int): Boolean {
         return (0..100).random() < value
     }
 
@@ -36,6 +36,26 @@ object Util {
             todo()
         else
             elseTodo()
+    }
+
+    fun isRudely(text: String): Boolean {
+        val rudeList = listOf<String>(
+            "cnm", "sb", "比划比划", "滚", "爬", "傻逼", "rbq", "操", "你妈", "草"
+        )
+        for (el in rudeList)
+            if (text.contains(el))
+                return true
+        return false
+    }
+
+    fun isCallPinn(text: String): Boolean {
+        val rudeList = listOf<String>(
+            "pinn", "Pinn", "小品"
+        )
+        for (el in rudeList)
+            if (text.contains(el))
+                return true
+        return false
     }
 }
 

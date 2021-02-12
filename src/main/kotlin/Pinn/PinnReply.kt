@@ -1,9 +1,10 @@
-package Pinn;
+package Pinn
 
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 import MySqlManager.*
+import net.mamoe.mirai.contact.getMember
 
 object PinnReply {
     init {
@@ -11,20 +12,26 @@ object PinnReply {
         val msm = MySqlManager(connMsg, "pinn")
 
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
-            val nick = event.sender.nick
+            val sender_nick = event.sender.nick
+            val sender_id = event.sender.id
             val content = event.message.content
-            if (event.group.id == BotSender.Univer.id) {
-                if ((content.contains("小品")
-                            || content.contains("pinn")
-                            || content.contains("Pinn"))
-                    && content != ">pinn"
-                ) {
-                    if (Util.PR(10)) {
+            //如果是在大学叫小品，且不是命令
+            if (event.group.id == BotSender.Univer.id && Util.isCallPinn(content) && content != ">pinn") {
+                when (Util.isRudely(content)) {
+                    true -> try {
+                        BotSender.Univer.getMember(sender_id)?.mute(60)
+                        subject.sendImage(java.io.File("img/fuck.jpg"))
+                    } catch (e: Throwable) {
+                        subject.sendImage(java.io.File("img/kneel.gif"))
+                    }
+                    false -> if (Util.PR(10)) {
                         subject.sendImage(java.io.File("img/called.gif"))
                     } else if (Util.PR(70)) {
                         subject.sendMessage("?")
                     }
                 }
+
+
             }
 
             /*val table = msm.GetTable("SELECT content FROM historia")

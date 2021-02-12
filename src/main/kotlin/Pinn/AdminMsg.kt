@@ -1,6 +1,7 @@
 package Pinn;
 
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
+import net.mamoe.mirai.contact.getMember
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 import net.mamoe.mirai.utils.ExternalResource.Companion.toExternalResource
@@ -35,8 +36,8 @@ object AdminMsg {
                 } catch (e: Throwable) {
                     subject.sendMessage("没找到图片...")
                 }
-
             }
         }
+
     }
 }

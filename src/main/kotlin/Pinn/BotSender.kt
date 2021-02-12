@@ -1,11 +1,13 @@
 package Pinn;
 
 import com.alibaba.fastjson.JSON
+import net.mamoe.mirai.contact.mute
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory
 import net.mamoe.mirai.alsoLogin
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.contact.Group
+import net.mamoe.mirai.contact.getMember
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 import net.mamoe.mirai.utils.BotConfiguration
@@ -52,8 +54,6 @@ object BotSender {
                 content.contains("[图片]") -> Socie?.sendMessage(PlainText("$nick:").plus(event.message))
                 else -> Socie?.sendMessage("$nick:$content")
             }
-
-
     }
 
     suspend fun toUniverImg(img: File) {
@@ -78,6 +78,11 @@ object BotSender {
                     true -> Univer?.sendMessage(content)
                 }
             }
+    }
+
+    //大学禁言
+    suspend fun setUniverMute(id: Long) {
+        Univer.getMember(id)?.mute(60)
     }
 }
 
