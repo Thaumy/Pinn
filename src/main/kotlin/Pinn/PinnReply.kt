@@ -30,8 +30,6 @@ object PinnReply {
                         subject.sendMessage("?")
                     }
                 }
-
-
             }
 
             /*val table = msm.GetTable("SELECT content FROM historia")
