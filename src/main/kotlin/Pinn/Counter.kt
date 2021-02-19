@@ -14,6 +14,7 @@ import java.util.*
 object Counter {
     var SocieMsgCount: Int = 0
     var UniverMsgCount: Int = 0
+
     //数据库配置
     val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
     val USER = config.getString("database_user")

@@ -1,5 +1,6 @@
 package Pinn
 
+import Pinn.Util.isRudely
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.message.data.*
@@ -11,7 +12,7 @@ object BiHuaGou {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (content) {
+            if (content.isRudely()) {
                 Util.PR(30) { subject.sendImage(File("img/bihuagou.jpg")) }
             }
         }

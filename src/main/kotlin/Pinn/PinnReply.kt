@@ -3,8 +3,10 @@ package Pinn
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
-import MySqlManager.*
 import net.mamoe.mirai.contact.getMember
+import MySqlManager.*
+import Pinn.Util.isCallPinn
+import Pinn.Util.isRudely
 
 object PinnReply {
     init {
@@ -16,8 +18,8 @@ object PinnReply {
             val sender_id = event.sender.id
             val content = event.message.content
             //如果是在大学叫小品，且不是命令
-            if (event.group.id == BotSender.Univer.id && Util.isCallPinn(content) && content != ">pinn") {
-                when (Util.isRudely(content)) {
+            if (event.group.id == BotSender.Univer.id && content.isCallPinn() && content != ">pinn") {
+                when (content.isRudely()) {
                     true -> try {
                         BotSender.Univer.getMember(sender_id)?.mute(60)
                         subject.sendImage(java.io.File("img/fuck.jpg"))

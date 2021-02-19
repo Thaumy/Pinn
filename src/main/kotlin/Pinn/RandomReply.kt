@@ -19,9 +19,9 @@ object RandomReply {
             val nick = event.sender.nick
             val content = event.message.content
             if (event.group.id == BotSender.Univer.id) {
-                if ((0..100).random() == 1) {
+                if (100.random()) {
                     subject.sendImage(java.io.File("img/hug.jpg"))
-                } else if ((0..1000).random() == 1) {
+                } else if (1000.random()) {
                     subject.sendImage(java.io.File("img/kiss.gif"))
                 }
             }
