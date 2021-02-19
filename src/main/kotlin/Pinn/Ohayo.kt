@@ -5,7 +5,6 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.time.LocalTime
 import java.util.*
-import java.util.Calendar
 
 
 object Ohayo {
@@ -45,7 +44,7 @@ val getUp = object : TimerTask() {
             }, {
                 BotSender?.toUniver("哦哈哟~！")
             })
-            BotSender?.toUniverImg(File("img/getUp.gif"))
+            BotSender?.toUniverImg(File("img/getUp.jpg"))
         }
     }
 }
@@ -54,12 +53,14 @@ val getUp = object : TimerTask() {
 val goBed = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            Util.PR(60, {
-                BotSender?.toUniver("睡觉觉。")
+            Util.PR(70, {
+                BotSender?.toUniver("睡你妈。")
+                BotSender?.toUniverImg(File("img/lai.jpg"))
             }, {
                 BotSender?.toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
+                BotSender?.toUniverImg(File("img/goBed.jpg"))
             })
-            BotSender?.toUniverImg(File("img/goBed.jpg"))
+
         }
     }
 }

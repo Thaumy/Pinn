@@ -1,7 +1,5 @@
 package Pinn;
 
-import MySqlManager.MySqlConnMsg
-import MySqlManager.MySqlManager
 import com.alibaba.fastjson.JSON
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
@@ -9,7 +7,8 @@ import org.apache.commons.io.FileUtils
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-
+import MySqlManager.MySqlConnMsg
+import MySqlManager.MySqlManager
 
 object Counter {
     var SocieMsgCount: Int = 0
