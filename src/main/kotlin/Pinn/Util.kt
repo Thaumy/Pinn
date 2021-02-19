@@ -19,11 +19,6 @@ object Util {
         return (0..100).random() < value
     }
 
-    //千分之一概率
-    fun PR1000(value: Int): Boolean {
-        return (0..100).random() < value
-    }
-
     //概率行为
     inline fun PR(value: Int, todo: () -> Unit) {
         if ((0..100).random() < value)
@@ -38,6 +33,7 @@ object Util {
             elseTodo()
     }
 
+    //便捷概率函数
     inline fun Int.random(): Boolean {
         return (0..this).random() == 0
     }

@@ -15,6 +15,9 @@ object JiBaMao {
             if (LocalTime.now().hour in 2..5 && 2.random()) {
                 subject.sendImage(File("img/jibamao.jpg"))
             }
+            if (LocalTime.now().hour in 23..24 && 3.random()) {
+                subject.sendImage(File("img/heng.jpg"))
+            }
         }
     }
 }
