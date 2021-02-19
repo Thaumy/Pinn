@@ -20,6 +20,6 @@ fun main(): Unit = runBlocking {
     PinnReply
     Ohayo
 
-    BotSender.Bot.join()
+    BotSender.Bot.join()//bot保活
 }
 

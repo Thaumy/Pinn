@@ -38,22 +38,24 @@ object Util {
             elseTodo()
     }
 
+    //是否污秽语言
     fun isRudely(text: String): Boolean {
         val rudeList = listOf<String>(
-            "cnm", "sb", "比划比划", "滚", "爬", "傻逼", "rbq", "操", "你妈", "草"
+            "cnm", "sb", "比划比划", "滚", "爬", "傻逼", "rbq", "操", "你妈", "草", "nmsl", "nm", "lbd"
         )
         for (el in rudeList)
-            if (text.contains(el))
+            if (text.contains(el.toLowerCase()))
                 return true
         return false
     }
 
+    //是否呼叫机器人
     fun isCallPinn(text: String): Boolean {
         val rudeList = listOf<String>(
-            "pinn", "Pinn", "小品"
+            "小品", "pinn"
         )
         for (el in rudeList)
-            if (text.contains(el))
+            if (text.contains(el.toLowerCase()))
                 return true
         return false
     }

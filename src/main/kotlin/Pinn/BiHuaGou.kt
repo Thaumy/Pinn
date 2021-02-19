@@ -11,8 +11,7 @@ object BiHuaGou {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val nick = event.sender.nick
             val content = event.message.content
-            if (content.contains("二逼") || content.contains("比划比划") || content.contains("老逼登")
-            ) {
+            if (content) {
                 Util.PR(30) { subject.sendImage(File("img/bihuagou.jpg")) }
             }
         }
