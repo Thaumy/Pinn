@@ -59,5 +59,9 @@ object Util {
                 return true
         return false
     }
+
+    fun img(file: String): File {
+        return File("img/$file")
+    }
 }
 

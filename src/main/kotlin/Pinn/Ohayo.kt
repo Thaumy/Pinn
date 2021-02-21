@@ -12,6 +12,7 @@ object Ohayo {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
+
         var getUpDay = calendar.get(Calendar.DAY_OF_MONTH)
         var goBedDay = calendar.get(Calendar.DAY_OF_MONTH)
 
@@ -27,7 +28,7 @@ object Ohayo {
         }
 
         getUpTime.set(year, month, getUpDay, 7, 0)
-        goBedTime.set(year, month, goBedDay, 23, 0)
+        goBedTime.set(year, month, goBedDay, 22, 30)
 
         Timer().schedule(getUp, getUpTime.time, 24 * 60 * 60 * 1000)//早上好定时任务
         Timer().schedule(goBed, goBedTime.time, 24 * 60 * 60 * 1000)//晚安定时任务

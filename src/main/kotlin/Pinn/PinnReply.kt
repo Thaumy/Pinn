@@ -5,6 +5,7 @@ import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 import net.mamoe.mirai.contact.getMember
 import MySqlManager.*
+import Pinn.Util.img
 import Pinn.Util.isCallPinn
 import Pinn.Util.isRudely
 
@@ -22,12 +23,12 @@ object PinnReply {
                 when (content.isRudely()) {
                     true -> try {
                         BotSender.Univer.getMember(sender_id)?.mute(60)
-                        subject.sendImage(java.io.File("img/fuck.jpg"))
+                        subject.sendImage(img("fuck.jpg"))
                     } catch (e: Throwable) {
-                        subject.sendImage(java.io.File("img/kneel.gif"))
+                        subject.sendImage(img("kneel.gif"))
                     }
                     false -> if (Util.PR(10)) {
-                        subject.sendImage(java.io.File("img/called.gif"))
+                        subject.sendImage(img("called.gif"))
                     } else if (Util.PR(70)) {
                         subject.sendMessage("?")
                     }
