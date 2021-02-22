@@ -10,13 +10,13 @@ import Pinn.Util.random
 object JiBaMao {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
-            val nick = event.sender.nick
-            val content = event.message.content
-            if (LocalTime.now().hour in 2..5 && 2.random()) {
-                subject.sendImage(File("img/jibamao.jpg"))
-            }
-            if (LocalTime.now().hour in 23..24 && 3.random()) {
-                subject.sendImage(File("img/heng.jpg"))
+            if (event.group.id == BotSender.Univer.id) {
+                if (LocalTime.now().hour in 2..4 && 2.random()) {
+                    subject.sendImage(File("img/jibamao.jpg"))
+                }
+                if (LocalTime.now().hour in 0..1 && 3.random()) {
+                    subject.sendImage(File("img/heng.jpg"))
+                }
             }
         }
     }
