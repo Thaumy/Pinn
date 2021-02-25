@@ -4,10 +4,14 @@ import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 import net.mamoe.mirai.contact.getMember
+import java.time.LocalTime
+import java.io.File
 import MySqlManager.*
+import Pinn.BotSender.isUniverId
 import Pinn.Util.img
 import Pinn.Util.isCallPinn
 import Pinn.Util.isRudely
+import Pinn.Util.random
 
 object PinnReply {
     init {
@@ -17,9 +21,10 @@ object PinnReply {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val sender_nick = event.sender.nick
             val sender_id = event.sender.id
+            val group_id = event.group.id
             val content = event.message.content
             //如果是在大学叫小品，且不是命令
-            if (event.group.id == BotSender.Univer.id && content.isCallPinn() && content != ">pinn") {
+            if (group_id.isUniverId() && content.isCallPinn() && content != ">pinn") {
                 when (content.isRudely()) {
                     true -> try {
                         BotSender.Univer.getMember(sender_id)?.mute(60)
@@ -33,6 +38,18 @@ object PinnReply {
                         subject.sendMessage("?")
                     }
                 }
+            }
+
+            if (group_id.isUniverId()) {
+                if (LocalTime.now().hour in 2..4 && 2.random()) {
+                    subject.sendImage(File("img/jibamao.jpg"))
+                }
+                if (LocalTime.now().hour in 0..1 && 3.random()) {
+                    subject.sendImage(File("img/heng.jpg"))
+                }
+            }
+            if (group_id.isUniverId() && content.isRudely()) {
+                Util.PR(30) { subject.sendImage(img("bihuagou.jpg")) }
             }
 
             /*val table = msm.GetTable("SELECT content FROM historia")

@@ -23,13 +23,7 @@ object AdminMsg {
                         "build:${format.format(initTime)}\n" +
                                 "upHour:${timeSpan.toHours()}\n" +
                                 "SocieMsgCount:${Counter.SocieMsgCount}\n" +
-                                "UniverMsgCount:${Counter.UniverMsgCount}" +
-                                "本次更新内容：" +
-                                "强化型雅子检测" +
-                                "增强型辱骂小品识别" +
-                                "田所浩二的联动" +
-                                "API优化" +
-                                "优化的睡觉提示"
+                                "UniverMsgCount:${Counter.UniverMsgCount}"
                     )
                 )
             }
@@ -44,6 +38,5 @@ object AdminMsg {
                 }
             }
         }
-
     }
 }

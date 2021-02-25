@@ -83,5 +83,9 @@ object BotSender {
     suspend fun setUniverMute(id: Long) {
         Univer.getMember(id)?.mute(60)
     }
+
+    fun Long.isUniverId(): Boolean {
+        return this == Univer.id
+    }
 }
 

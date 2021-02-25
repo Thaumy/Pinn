@@ -30,14 +30,13 @@ object Ohayo {
         getUpTime.set(year, month, getUpDay, 7, 0)
         goBedTime.set(year, month, goBedDay, 22, 30)
 
-        Timer().schedule(getUp, getUpTime.time, 24 * 60 * 60 * 1000)//早上好定时任务
-        Timer().schedule(goBed, goBedTime.time, 24 * 60 * 60 * 1000)//晚安定时任务
-
+        Timer().schedule(getUpTask, getUpTime.time, 24 * 60 * 60 * 1000)//早上好定时任务
+        Timer().schedule(goBedTask, goBedTime.time, 24 * 60 * 60 * 1000)//晚安定时任务
     }
 }
 
 //起床任务
-val getUp = object : TimerTask() {
+val getUpTask = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
             Util.PR(60, {
@@ -51,17 +50,18 @@ val getUp = object : TimerTask() {
 }
 
 //睡觉任务
-val goBed = object : TimerTask() {
+val goBedTask = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            Util.PR(70, {
-                BotSender?.toUniver("睡你妈。")
-                BotSender?.toUniverImg(File("img/lai.jpg"))
-            }, {
-                BotSender?.toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
-                BotSender?.toUniverImg(File("img/goBed.jpg"))
-            })
-
+            BotSender.run {
+                Util.PR(70, {
+                    toUniver("睡你妈。")
+                    toUniverImg(File("img/lai.jpg"))
+                }, {
+                    toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
+                    toUniverImg(File("img/goBed.jpg"))
+                })
+            }
         }
     }
 }

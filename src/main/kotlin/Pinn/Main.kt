@@ -12,8 +12,6 @@ fun main(): Unit = runBlocking {
     Counter
     AdminMsg
 
-    BiHuaGou
-    JiBaMao
     Miyabi
 
     RandomReply
