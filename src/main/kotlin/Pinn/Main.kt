@@ -14,7 +14,6 @@ fun main(): Unit = runBlocking {
 
     Miyabi
 
-    RandomReply
     PinnReply
     Ohayo
 

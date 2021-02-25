@@ -39,7 +39,7 @@ object PinnReply {
                     }
                 }
             }
-
+            //几把猫
             if (group_id.isUniverId()) {
                 if (LocalTime.now().hour in 2..4 && 2.random()) {
                     subject.sendImage(File("img/jibamao.jpg"))
@@ -48,10 +48,18 @@ object PinnReply {
                     subject.sendImage(File("img/heng.jpg"))
                 }
             }
+            //比划狗
             if (group_id.isUniverId() && content.isRudely()) {
                 Util.PR(30) { subject.sendImage(img("bihuagou.jpg")) }
             }
-
+            //随机回复
+            if (group_id.isUniverId()) {
+                if (100.random()) {
+                    subject.sendImage(java.io.File("img/hug.jpg"))
+                } else if (1000.random()) {
+                    subject.sendImage(java.io.File("img/kiss.gif"))
+                }
+            }
             /*val table = msm.GetTable("SELECT content FROM historia")
             for ((i, el) in table.withIndex()) {
                 if (msgAlikeRate(content, el.get(0).toString()) > 60) {
