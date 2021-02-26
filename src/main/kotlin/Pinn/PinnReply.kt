@@ -7,11 +7,13 @@ import net.mamoe.mirai.contact.getMember
 import java.time.LocalTime
 import java.io.File
 import MySqlManager.*
+import Pinn.BotSender.Bot
 import Pinn.BotSender.isUniverId
 import Pinn.Util.img
 import Pinn.Util.isCallPinn
 import Pinn.Util.isRudely
 import Pinn.Util.random
+import net.mamoe.mirai.contact.isMuted
 
 object PinnReply {
     init {
@@ -24,8 +26,7 @@ object PinnReply {
             val group_id = event.group.id
             val content = event.message.content
             if (group_id.isUniverId()) {
-                
-                BotSender.Univer.getMember(id)?.mute(60)
+
                 //如果是在大学叫小品，且不是命令
                 if (content.isCallPinn() && content != ">pinn") {
                     when (content.isRudely()) {
