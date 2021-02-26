@@ -34,7 +34,7 @@ object Util {
     }
 
     //便捷概率函数
-    inline fun Int.random(): Boolean {
+    fun Int.random(): Boolean {
         return (0..this).random() == 0
     }
 

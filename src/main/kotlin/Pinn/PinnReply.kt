@@ -60,14 +60,16 @@ object PinnReply {
                     subject.sendImage(java.io.File("img/kiss.gif"))
                 }
             }
-            /*val table = msm.GetTable("SELECT content FROM historia")
-            for ((i, el) in table.withIndex()) {
-                if (msgAlikeRate(content, el.get(0).toString()) > 60) {
-                    if (i + 1 < table.colsCount)
-                        subject.sendMessage(table.getRow(i + 1).get(0).toString())
-                    break
+            if (8.random()) {
+                val table = msm.GetTable("SELECT content FROM historia")
+                for ((i, el) in table.withIndex()) {
+                    if (msgAlikeRate(content, el.get(0).toString()) > 80) {
+                        if (i + 1 < table.colsCount)
+                            subject.sendMessage(table.getRow(i + 1).get(0).toString())
+                        break
+                    }
                 }
-            }*/
+            }
         }
     }
 
