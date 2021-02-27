@@ -28,7 +28,6 @@ object FixedChat {
                             BotSender.Univer.getMember(sender_id)?.mute(60)
                             subject.sendImage(img("fuck.jpg"))
                         } catch (e: Throwable) {
-                            subject.sendImage(img("kneel.gif"))
                         }
                         false -> when {
                             8.random() -> subject.sendImage(img("called.gif"))

@@ -1,6 +1,7 @@
 package Pinn
 
 import Pinn.BotSender.isUniverId
+import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 
@@ -18,7 +19,6 @@ object Mute {
             val group_id = event.group.id
 
             if (group_id.isUniverId()) {
-
                 if (reg_mute.containsMatchIn(content)) {
                     if (list.count() == 0) {
                         mute_id = reg_id.find(content)?.value.toString().let { it.substring(1, it.length - 1) }.toLong()
@@ -28,7 +28,6 @@ object Mute {
                     } else {
                         subject.sendMessage("上一投票未结束！")
                     }
-
                 } else if (content == "赞成") {
                     if (!list.contains(sender_id)) {//投票列表未包含
                         list.add(sender_id)
@@ -44,6 +43,12 @@ object Mute {
                         BotSender.setUniverMute(mute_id)
                         mute_id = 0L
                         times = 0
+                    }
+                } else if (content == "大转盘") {
+                    try {
+                        BotSender.setUniverMute(sender_id)
+                        subject.sendMessage("我他妈直接枪毙")
+                    } catch (e: Throwable) {
                     }
                 }
             }
