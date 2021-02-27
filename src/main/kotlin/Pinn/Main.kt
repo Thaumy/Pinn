@@ -13,9 +13,10 @@ fun main(): Unit = runBlocking {
     AdminMsg
 
     Ohayo
+    Mute
 
     FixedChat
-    SmartChat
+    //SmartChat
 
     BotSender.Bot.join()//keep alive
 }
