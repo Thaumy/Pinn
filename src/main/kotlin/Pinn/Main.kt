@@ -12,11 +12,11 @@ fun main(): Unit = runBlocking {
     Counter
     AdminMsg
 
-    Miyabi
-
-    PinnReply
     Ohayo
 
-    BotSender.Bot.join()//bot保活
+    FixedChat
+    SmartChat
+
+    BotSender.Bot.join()//keep alive
 }
 

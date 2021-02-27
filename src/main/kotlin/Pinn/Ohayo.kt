@@ -1,5 +1,6 @@
 package Pinn;
 
+import Pinn.Util.random
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
@@ -23,12 +24,12 @@ object Ohayo {
         if (LocalTime.now().hour >= 7) {
             getUpDay++
         }
-        if (LocalTime.now().hour >= 23) {
+        if (LocalTime.now().hour >= 22) {
             goBedDay++
         }
 
         getUpTime.set(year, month, getUpDay, 7, 0)
-        goBedTime.set(year, month, goBedDay, 22, 30)
+        goBedTime.set(year, month, goBedDay, 22, 0)
 
         Timer().schedule(getUpTask, getUpTime.time, 24 * 60 * 60 * 1000)//早上好定时任务
         Timer().schedule(goBedTask, goBedTime.time, 24 * 60 * 60 * 1000)//晚安定时任务
@@ -39,7 +40,7 @@ object Ohayo {
 val getUpTask = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            Util.PR(60, {
+            3.random({
                 BotSender?.toUniver("早上好！")
             }, {
                 BotSender?.toUniver("哦哈哟~！")
@@ -54,7 +55,7 @@ val goBedTask = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
             BotSender.run {
-                Util.PR(70, {
+                3.random({
                     toUniver("睡你妈。")
                     toUniverImg(File("img/lai.jpg"))
                 }, {
