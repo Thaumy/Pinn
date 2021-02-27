@@ -21,21 +21,29 @@ object Mute {
 
                 if (reg_mute.containsMatchIn(content)) {
                     if (list.count() == 0) {
-                        //mute_id = reg_id.matchEntire(content)?.value?.substring(1, -2)?.toLong()!!
-                        subject.sendMessage(reg_id.matchEntire(content)?.value.toString())
+                        mute_id = reg_id.find(content)?.value.toString().let { it.substring(1, it.length - 1) }.toLong()
+                        list.add(sender_id)
+                        times++
+                        subject.sendMessage("还差${2 - times}票通过")
                     } else {
                         subject.sendMessage("上一投票未结束！")
                     }
 
                 } else if (content == "赞成") {
-                    if (!list.contains(sender_id)) {
+                    if (!list.contains(sender_id)) {//投票列表未包含
                         list.add(sender_id)
                         times++
+                        if (times != 2) {
+                            subject.sendMessage("还差${2 - times}票通过")
+                        }
+                    } else {
+                        subject.sendMessage("您已经投过票了")
                     }
                     if (times == 2) {
                         list.clear()
                         BotSender.setUniverMute(mute_id)
                         mute_id = 0L
+                        times = 0
                     }
                 }
             }
