@@ -49,8 +49,9 @@ object Mute {
                 } else if (content == "开火！") {
                     try {
                         if (dzp_ratecount.random()) {
-                            BotSender.setUniverMute(sender_id)
+                            BotSender.setUniverMute10(sender_id)
                             subject.sendMessage("哈哈哈哈哈哈哈哈哈")
+                            subject.sendMessage("reloading！")
                             dzp_ratecount = 32
                         } else {
                             dzp_ratecount--
