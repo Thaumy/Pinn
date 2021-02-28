@@ -1,6 +1,7 @@
 package Pinn
 
 import Pinn.BotSender.isUniverId
+import Pinn.Util.random
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
@@ -11,6 +12,7 @@ object Mute {
     var mute_id = 0L
     var times = 0
     val list = mutableListOf<Long>()
+    var dzp_ratecount = 32
 
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
@@ -44,10 +46,16 @@ object Mute {
                         mute_id = 0L
                         times = 0
                     }
-                } else if (content == "大转盘") {
+                } else if (content == "开火！") {
                     try {
-                        BotSender.setUniverMute(sender_id)
-                        subject.sendMessage("我他妈直接枪毙")
+                        if (dzp_ratecount.random()) {
+                            BotSender.setUniverMute(sender_id)
+                            subject.sendMessage("哈哈哈哈哈哈哈哈哈")
+                            dzp_ratecount = 32
+                        } else {
+                            dzp_ratecount--
+                            subject.sendMessage("哑弹！剩余${dzp_ratecount}颗子弹。")
+                        }
                     } catch (e: Throwable) {
                     }
                 }
