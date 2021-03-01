@@ -12,7 +12,7 @@ object Mute {
     var mute_id = 0L
     var times = 0
     val list = mutableListOf<Long>()
-    var dzp_ratecount = 32
+    var roulette_ammo = 30
 
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
@@ -48,14 +48,14 @@ object Mute {
                     }
                 } else if (content == "开火！") {
                     try {
-                        if (dzp_ratecount.random()) {
-                            BotSender.setUniverMute10(sender_id)
-                            subject.sendMessage("哈哈哈哈哈哈哈哈哈")
+                        if (roulette_ammo.random()) {
+                            BotSender.setUniverMute(sender_id, roulette_ammo * 60)
+                            subject.sendMessage("哈哈哈哈哈哈哈哈哈哈哈")
                             subject.sendMessage("reloading！")
-                            dzp_ratecount = 32
+                            roulette_ammo = 30
                         } else {
-                            dzp_ratecount--
-                            subject.sendMessage("哑弹！剩余${dzp_ratecount}颗子弹。")
+                            roulette_ammo--
+                            subject.sendMessage("哑弹！剩余${roulette_ammo}颗子弹。")
                         }
                     } catch (e: Throwable) {
                     }
