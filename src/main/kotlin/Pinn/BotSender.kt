@@ -79,6 +79,13 @@ object BotSender {
             }
     }
 
+    fun msgIsUniver(todo: (GroupMessageEvent) -> Unit) {
+        Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
+            if (event.group.id.isUniverId())
+                todo(event)
+        }
+    }
+
     //大学禁言
     suspend fun setUniverMute(id: Long) {
         Univer.getMember(id)?.mute(60)

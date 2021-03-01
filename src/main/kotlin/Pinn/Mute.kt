@@ -5,6 +5,7 @@ import Pinn.Util.random
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
+import kotlinx.coroutines.*
 
 object Mute {
     val reg_mute = Regex("@[0-9]* @[0-9]* 禁言")
@@ -15,12 +16,13 @@ object Mute {
     var roulette_ammo = 30
 
     init {
-        BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
-            val content = event.message.content
-            val sender_id = event.sender.id
-            val group_id = event.group.id
+        BotSender.msgIsUniver { event ->
+            runBlocking {
 
-            if (group_id.isUniverId()) {
+                val content = event.message.content
+                val sender_id = event.sender.id
+                val subject = event.subject
+
                 if (reg_mute.containsMatchIn(content)) {
                     if (list.count() == 0) {
                         mute_id = reg_id.find(content)?.value.toString().let { it.substring(1, it.length - 1) }.toLong()
