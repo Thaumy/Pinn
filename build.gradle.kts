@@ -21,7 +21,7 @@ tasks.withType<Jar> {
 }
 
 repositories {
-    maven("https://mirrors.huaweicloud.com/repository/maven/")
+    maven("https://maven.aliyun.com/repository/public/")
     maven("https://jitpack.io")
     mavenCentral()
     jcenter()
