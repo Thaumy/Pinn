@@ -13,7 +13,7 @@ object Mute {
     var mute_id = 0L
     var times = 0
     val list = mutableListOf<Long>()
-    var roulette_ammo = 30
+    var roulette_ammo = 16//初始子弹数
 
     init {
         BotSender.msgIsUniver { event ->
@@ -54,7 +54,7 @@ object Mute {
                             BotSender.setUniverMute(sender_id, roulette_ammo * 60)
                             subject.sendMessage("哈哈哈哈哈哈哈哈哈哈哈")
                             subject.sendMessage("reloading！")
-                            roulette_ammo = 30
+                            roulette_ammo = 16
                         } else {
                             roulette_ammo--
                             subject.sendMessage("哑弹！剩余${roulette_ammo}颗子弹。")

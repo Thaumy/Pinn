@@ -52,7 +52,7 @@ object FixedChat {
 
                 //雅子检测
                 if (sender_id == 2311546114) {
-                    if (16.random()) {
+                    if (20.random()) {
                         subject.sendMessage("雅子！")
                     }
                 }
