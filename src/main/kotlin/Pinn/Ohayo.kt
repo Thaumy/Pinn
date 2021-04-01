@@ -40,12 +40,14 @@ object Ohayo {
 val getUpTask = object : TimerTask() {
     override fun run() {
         GlobalScope.launch {
-            3.random({
-                BotSender?.toUniver("早上好！")
-            }, {
-                BotSender?.toUniver("哦哈哟~！")
-            })
-            BotSender?.toUniverImg(File("img/getUp.jpg"))
+            BotSender.run {
+                3.random({
+                    toUniverString("早上好！")
+                }, {
+                    toUniverString("哦哈哟~！")
+                })
+                toUniverImg(File("img/getUp.jpg"))
+            }
         }
     }
 }
@@ -56,10 +58,10 @@ val goBedTask = object : TimerTask() {
         GlobalScope.launch {
             BotSender.run {
                 3.random({
-                    toUniver("睡你妈。")
+                    toUniverString("睡你妈。")
                     toUniverImg(File("img/lai.jpg"))
                 }, {
-                    toUniver("哦呀斯密~o(*≧▽≦)ツ┏━┓")
+                    toUniverString("哦呀斯密~o(*≧▽≦)ツ┏━┓")
                     toUniverImg(File("img/goBed.jpg"))
                 })
             }

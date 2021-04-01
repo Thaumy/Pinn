@@ -1,5 +1,8 @@
 package Pinn
 
+import Pinn.BotSender.isPinnCommand
+import Pinn.BotSender.isSocieId
+import Pinn.BotSender.isUniverId
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.*
 
@@ -7,33 +10,41 @@ import net.mamoe.mirai.message.data.*
 object ForwardSwitch {
     init {
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
-            val nick = event.sender.nick
             val content = event.message.content
-            if (event.group.id == 917328480L) {
-                when (content) {
-                    "/*" -> {
-                        BotSender.can_to_univer = false
-                        subject.sendMessage("不转啦！")
-                    }
-                    "*/" -> {
+            //此处的isPinnCommand仅优化性能，减少判断，非必要
+            if (event.group.id.isSocieId() && content.isPinnCommand()) {
+                when {
+                    content.contains("*)") -> {
                         BotSender.can_to_univer = true
-                        subject.sendMessage("那边能听到了哟~！")
+                        subject.sendMessage("启用")
                     }
-                    "-v" -> {
+                    content.contains("(*") -> {
+                        BotSender.can_to_univer = false
+                        subject.sendMessage("不转啦！！！")
+                    }
+                    content.contains(">>") -> {
                         BotSender.can_to_socie = true
-                        subject.sendMessage("接收消息")
+                        BotSender.toUniverString(content.replace(">>", ""))
+                        BotSender.can_to_socie = false
                     }
-                    "-x" -> {
+                    content.contains(">接收") -> {
+                        BotSender.can_to_socie = true
+                        subject.sendMessage("启用")
+                    }
+                    content.contains(">拒收") -> {
                         BotSender.can_to_socie = false
                         subject.sendMessage("拒收消息")
                     }
-                    "v?" -> {
+                    content.contains(">匿名转发") -> {
                         BotSender.anonymous_to_univer = true
-                        subject.sendMessage("匿名转发启用")
+                        subject.sendMessage("启用")
                     }
-                    "x?" -> {
+                    content.contains(">实名转发") -> {
                         BotSender.anonymous_to_univer = false
-                        subject.sendMessage("匿名转发关闭")
+                        subject.sendMessage("转发将实名")
+                    }
+                    else -> {
+                        subject.sendMessage("未找到命令")
                     }
                 }
             }

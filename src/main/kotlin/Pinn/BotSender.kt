@@ -24,7 +24,6 @@ object BotSender {
     var can_to_univer = false//转发到大学
     var anonymous_to_univer = true//匿名转发到大学
 
-    val instruList = listOf("/*", "*/", "-v", "-x", "v?", "x?")
 
     //初始化Bot
     suspend fun init() {
@@ -36,19 +35,20 @@ object BotSender {
         Univer = Bot.getGroup(config.getLong("univer_id"))!!
     }
 
-    fun instruCheck(msg: String): Boolean {
-        for (el in instruList) {
-            if (msg.contains(el)) {
-                return false
-            }
+    //是否是对于小品的命令
+    fun String.isPinnCommand(): Boolean {
+        val commandList = listOf("*)", "(*", ">>", ">img", ">event", ">help", ">接收", ">拒收", ">匿名转发", ">实名转发")
+        for (el in commandList) {
+            if (this.contains(el))
+                return true
         }
-        return true
+        return false
     }
 
     suspend fun toSocie(event: GroupMessageEvent) {
         val nick = event.sender.nick
         val content = event.message.content
-        if (can_to_socie && instruCheck(content))
+        if (can_to_socie && !content.isPinnCommand())
             when (true) {
                 content.contains("[图片]") -> Socie?.sendMessage(PlainText("$nick:").plus(event.message))
                 else -> Socie?.sendMessage("$nick:$content")
@@ -59,20 +59,20 @@ object BotSender {
         Univer?.sendImage(img)
     }
 
-    suspend fun toUniver(msg: String) {
+    suspend fun toUniverString(msg: String) {
         Univer?.sendMessage(msg)
     }
 
     suspend fun toUniver(event: GroupMessageEvent) {
         val nick = event.sender.nick
         val content = event.message.content
-        if (can_to_univer && instruCheck(content))
-            when (true) {
+        if (can_to_univer && !content.isPinnCommand())
+            when {
                 content.contains("[图片]") -> when (anonymous_to_univer) {
                     false -> Univer?.sendMessage(PlainText("$nick:").plus(event.message))
                     true -> Univer?.sendMessage(event.message)
                 }
-                else -> when (anonymous_to_univer) {
+                !content.contains("[图片]") -> when (anonymous_to_univer) {
                     false -> Univer?.sendMessage("$nick:$content")
                     true -> Univer?.sendMessage(content)
                 }
@@ -93,6 +93,10 @@ object BotSender {
 
     suspend fun setUniverMute(id: Long, sec: Int) {
         Univer.getMember(id)?.mute(sec)
+    }
+
+    fun Long.isSocieId(): Boolean {
+        return this == Socie.id
     }
 
     fun Long.isUniverId(): Boolean {

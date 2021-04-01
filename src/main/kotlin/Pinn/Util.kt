@@ -23,7 +23,6 @@ object Util {
         return (1..this).random() == 1
     }
 
-
     //是否污秽语言
     fun String.isRudely(): Boolean {
         val rudeList = listOf<String>(

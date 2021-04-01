@@ -30,7 +30,7 @@ object AdminMsg {
         }
         BotSender.Bot.eventChannel.subscribeAlways<GroupMessageEvent> { event ->
             val content = event.message.content
-            if (content.contains(">img ")) {
+            if (content.contains(">img")) {
                 try {
                     subject.sendImage(File(content.replace(">img ", "")))
                 } catch (e: Throwable) {

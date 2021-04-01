@@ -20,6 +20,30 @@ object FixedChat {
             val group_id = event.group.id
             val content = event.message.content
 
+            if (content.contains(">help")) {
+                subject.sendMessage(
+                    "全局命令:\n" +
+                            "取得帮助 >help\n" +
+                            "小品状态 >pinn\n" +
+                            "事件列表 >event\n" +
+                            "图片调试 >img [相对路径]\n" +
+                            "仅在水瓜社可用的命令:\n\n" +
+                            "关闭转发 (*\n" +
+                            "启用转发 *)\n" +
+                            "临时匿名转发 >>[文本消息]\n" +
+                            "消息控制 >[接收/拒收]\n" +
+                            "匿名控制 >[匿名/实名]转发"
+                )
+            }
+            if (content.contains(">event")) {
+                subject.sendMessage(
+                    "雅子检测 [由雅子发言触发]\n" +
+                            "早上好 [小品起床时触发]\n" +
+                            "几把猫 [小品睡觉时触发]\n" +
+                            "大声哭闹 [小品睡觉的正香时触发]\n" +
+                            "比划比划 [小品被骂时触发]\n"
+                )
+            }
             if (group_id.isUniverId()) {
                 //如果是在大学叫小品，且不是命令
                 if (content.isCallPinn() && content != ">pinn") {
@@ -56,7 +80,6 @@ object FixedChat {
                         subject.sendMessage("雅子！")
                     }
                 }
-
             }
         }
     }

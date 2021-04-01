@@ -3,11 +3,17 @@ package Pinn
 import MySqlManager.MySqlConnMsg
 import MySqlManager.MySqlManager
 import Pinn.BotSender.isUniverId
+import com.alibaba.fastjson.JSON
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
+import org.apache.commons.io.FileUtils
+import java.io.File
 
 object SmartChat {
-    val connMsg = MySqlConnMsg("localhost", 3306, "root", "65a1561425f744e2b541303f628963f8")
+    val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
+    val USER = Counter.config.getString("database_user")
+    val PWD = Counter.config.getString("database_pwd")
+    val connMsg = MySqlConnMsg("localhost", 3306, USER, PWD)
     val msm = MySqlManager(connMsg, "pinn")
     val msgcache = mutableListOf<String>()
 
@@ -20,7 +26,7 @@ object SmartChat {
                 val table = msm.GetTable("SELECT content FROM historia ORDER BY time DESC LIMIT 200,100")
                 for ((i, el) in table.withIndex()) {
                     val msg = el.get(0).toString()
-                    //subject.sendMessage(msgAlikeRate(content, msg).toString())
+
                     if (msgAlikeRate(content, msg) > 60) {
                         val msg2 = table.getRow(i + 1).get(0).toString()
 
