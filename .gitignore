@@ -41,3 +41,8 @@ node_modules
 # local env files
 .env.local
 .env.*.local
+
+#proj cus
+/pinn_release
+config.json
+device.json
