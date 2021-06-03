@@ -15,7 +15,7 @@ import java.io.File
 
 
 object BotSender {
-    val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
+
     lateinit var Bot: Bot
     lateinit var Socie: Group
     lateinit var Univer: Group
@@ -24,15 +24,19 @@ object BotSender {
     var can_to_univer = false//转发到大学
     var anonymous_to_univer = true//匿名转发到大学
 
+    val qid = (Config.pinnNode["qid"] as String).toLong()
+    val pwd = Config.pinnNode["pwd"] as String
+    val melonID = (Config.groupsNode["melon_id"] as String).toLong()
+    val univerID = (Config.groupsNode["univer_id"] as String).toLong()
 
     //初始化Bot
     suspend fun init() {
-        Bot = BotFactory.newBot(config.getLong("pinn_id"), config.getString("pinn_pwd")) {
+        Bot = BotFactory.newBot(qid, pwd) {
             fileBasedDeviceInfo()
             protocol = BotConfiguration.MiraiProtocol.ANDROID_PHONE
         }.alsoLogin()
-        Socie = Bot.getGroup(config.getLong("melon_id"))!!
-        Univer = Bot.getGroup(config.getLong("univer_id"))!!
+        Socie = Bot.getGroup(melonID)!!
+        Univer = Bot.getGroup(univerID)!!
     }
 
     //是否是对于小品的命令

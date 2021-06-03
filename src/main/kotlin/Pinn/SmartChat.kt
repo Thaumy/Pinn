@@ -10,10 +10,9 @@ import org.apache.commons.io.FileUtils
 import java.io.File
 
 object SmartChat {
-    val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
-    val USER = Counter.config.getString("database_user")
-    val PWD = Counter.config.getString("database_pwd")
-    val connMsg = MySqlConnMsg("localhost", 3306, USER, PWD)
+    val usr = Config.databaseNode["usr"] as String
+    val pwd = Config.databaseNode["pwd"] as String
+    val connMsg = MySqlConnMsg("localhost", 3306, usr, pwd)
     val msm = MySqlManager(connMsg, "pinn")
     val msgcache = mutableListOf<String>()
 

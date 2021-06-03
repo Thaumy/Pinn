@@ -46,7 +46,7 @@ object Util {
     }
 
     fun img(file: String): File {
-        return File("img/$file")
+        return File(".pinn/img/$file")
     }
 }
 

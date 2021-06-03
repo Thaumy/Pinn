@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "H2OM"
-version = "1.0-SNAPSHOT"
+version = "LTS"
 val main_class = "Pinn.MainKt"
 
 tasks.withType<Jar> {

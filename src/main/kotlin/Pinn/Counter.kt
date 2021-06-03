@@ -13,12 +13,11 @@ import MySqlManager.MySqlManager
 object Counter {
     var SocieMsgCount: Int = 0
     var UniverMsgCount: Int = 0
-
+    val usr = Config.databaseNode["usr"] as String
+    val pwd = Config.databaseNode["pwd"] as String
     //数据库配置
-    val config = JSON.parseObject(FileUtils.readFileToString(File("config.json"), "UTF-8"))
-    val USER = config.getString("database_user")
-    val PWD = config.getString("database_pwd")
-    val connMsg = MySqlConnMsg("localhost", 3306, USER, PWD)
+
+    val connMsg = MySqlConnMsg("localhost", 3306, usr, pwd)
     val msm = MySqlManager(connMsg, "pinn")
 
     init {

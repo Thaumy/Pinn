@@ -19,7 +19,7 @@
     <remote-repository>
       <option name="id" value="maven" />
       <option name="name" value="maven" />
-      <option name="url" value="https://mirrors.huaweicloud.com/repository/maven/" />
+      <option name="url" value="https://maven.aliyun.com/repository/public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="BintrayJCenter" />
@@ -30,11 +30,6 @@
       <option name="id" value="maven2" />
       <option name="name" value="maven2" />
       <option name="url" value="https://jitpack.io" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="maven" />
-      <option name="name" value="maven" />
-      <option name="url" value="https://maven.aliyun.com/repository/public/" />
     </remote-repository>
   </component>
 </project>

@@ -62,16 +62,16 @@ object FixedChat {
 
                 //几把猫
                 if (LocalTime.now().hour in 2..4 && 2.random()) {
-                    subject.sendImage(File("img/jibamao.jpg"))
+                    subject.sendImage(img("jibamao.jpg"))
                 } else if (LocalTime.now().hour in 0..1 && 3.random()) {
-                    subject.sendImage(File("img/heng.jpg"))
+                    subject.sendImage(img("heng.jpg"))
                 }
 
                 //随机回复
                 if (100.random()) {
-                    subject.sendImage(java.io.File("img/hug.jpg"))
+                    subject.sendImage(img("hug.jpg"))
                 } else if (1000.random()) {
-                    subject.sendImage(java.io.File("img/kiss.gif"))
+                    subject.sendImage(img("kiss.gif"))
                 }
 
                 //雅子检测
@@ -79,6 +79,10 @@ object FixedChat {
                     if (20.random()) {
                         subject.sendMessage("雅子！")
                     }
+                }
+
+                if (content == "jrjb") {
+                    subject.sendImage(img("jrjb.jpg"))
                 }
             }
         }
