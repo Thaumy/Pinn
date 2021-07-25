@@ -14,7 +14,8 @@ object MiyabiDetect {
 
     init {
         Bot.Instance.eventChannel.subscribeAlways<GroupMessageEvent> { e ->
-            if (e.sender.id == 2311546114) {
+            val sender_id = e.sender.id
+            if (sender_id == 2311546114) {
                 rand(miyabi) {
                     subject.sendMessage("雅子！")
                 }
