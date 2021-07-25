@@ -9,7 +9,7 @@ object ReLogin {
     init {
         runBlocking {
             while (true) {
-                delay(1000 * 60 * 5)
+                delay(1000 /** 60 * 5*/)
                 if (!Bot.Instance.isOnline) {
                     println("offline:restarting")
                     Bot.login()

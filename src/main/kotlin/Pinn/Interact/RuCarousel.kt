@@ -1,4 +1,4 @@
-package Pinn.Mod
+package Pinn.Interact
 
 import Pinn.Core.Bot
 import Pinn.Mod.Mute.mute
@@ -18,11 +18,14 @@ object RuCarousel {
             val sender_id = e.sender.id
             val subject = e.subject
 
-            if (content == "开火！") {
+            if (content == "/fire") {
                 if (now_ammo.random()) {
-                    Bot.UniverGroup?.mute(sender_id, now_ammo * 60)
-                    subject.sendMessage("哈哈哈哈哈哈哈哈哈哈哈")
-                    subject.sendMessage("reloading！")
+                    if (Bot.UniverGroup?.mute(sender_id, now_ammo * 60) == true) {
+                        subject.sendMessage("死了啦，拜托")
+                        subject.sendMessage("reloading")
+                    } else {
+                        subject.sendMessage("靠，六级甲打不透")
+                    }
                     now_ammo = init_ammo
                 } else {
                     now_ammo--

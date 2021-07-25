@@ -2,10 +2,8 @@ package Pinn
 
 import Pinn.Core.Bot
 import Pinn.Core.Config
-import Pinn.Mod.ReLogin
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import Pinn.Interact.*
+import Pinn.Mod.*
 
 fun main() {
     /*println(Config.qqUsr)
@@ -20,5 +18,19 @@ fun main() {
 
     Config
     Bot
+
+    Admin
+    Learning
+    Mute
+    Status
+
+    GetUp
+    GoBed
+    JbCat
+    JbToday
+    RuCarousel
+    SmartChat
+    MiyabiDetect
+
     ReLogin
 }

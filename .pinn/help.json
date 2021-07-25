@@ -1,0 +1,12 @@
+{
+    "/help": "帮助文档",
+    "/event": "事件列表",
+    "/mute [acc] [val]": "禁言acc val分钟",
+    "/unmute [acc]": "某人禁言解除",
+    "/unmute -a": "全体禁言解除",
+    "/rate (reply/alike) [val]": "设置(回复/相似)率",
+    "/reply [val]": "启用回复1,关闭0",
+    "/sys repl [val]": "交互式命令行模式1，关闭0",
+    "/sys shut [val]": "待机0,关机1,重启2",
+    "/sys slog [val]": "启用学习日志1,关闭0"
+}
