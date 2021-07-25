@@ -48,5 +48,5 @@ node_modules
 /build
 
 /release
-/.pinn/config.json
+config.json
 device.json
