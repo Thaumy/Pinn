@@ -1,16 +1,18 @@
 package Pinn.Mod
 
-
-import java.text.SimpleDateFormat
 import java.util.*
+import java.text.SimpleDateFormat
 
-import MySqlManager.MySqlConnMsg
-import MySqlManager.MySqlManager
 import Pinn.Core.Bot
 import Pinn.Core.Config
 import Pinn.Util.String.isPureText
+
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
+
+import MySqlManager.MySqlConnMsg
+import MySqlManager.MySqlManager
+
 
 object Learning {
     val connMsg = MySqlConnMsg("localhost", 3306, Config.dbUsr, Config.dbPwd)

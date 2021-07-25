@@ -1,8 +1,10 @@
 package Pinn.Core
 
 import java.io.File
+
 import com.alibaba.fastjson.JSON
 import org.apache.commons.io.FileUtils
+
 
 object Config {
     private val file = File(".pinn/config.json")

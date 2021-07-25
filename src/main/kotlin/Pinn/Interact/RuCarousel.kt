@@ -3,13 +3,15 @@ package Pinn.Interact
 import Pinn.Core.Bot
 import Pinn.Mod.Mute.mute
 import Pinn.Util.Random.random
+
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 
+
 object RuCarousel {
-    var times = 0
-    val init_ammo = 6//初始子弹数
-    var now_ammo = init_ammo//当前子弹数
+    private var times = 0
+    private val init_ammo = 6//初始子弹数
+    private var now_ammo = init_ammo//当前子弹数
 
     init {
         Bot.Instance.eventChannel.subscribeAlways<GroupMessageEvent> { e ->

@@ -7,6 +7,7 @@ import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 
+
 object JbToday {//今日jb
 init {
     Bot.Instance.eventChannel.subscribeAlways<GroupMessageEvent> { e ->

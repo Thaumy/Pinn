@@ -1,15 +1,16 @@
 package Pinn.Core
 
+import java.io.File
 import kotlinx.coroutines.runBlocking
+
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory
 import net.mamoe.mirai.alsoLogin
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.contact.Group
-import net.mamoe.mirai.message.data.Image
 import net.mamoe.mirai.message.data.Message
 import net.mamoe.mirai.utils.BotConfiguration
-import java.io.File
+
 
 object Bot {
     val Instance = login()

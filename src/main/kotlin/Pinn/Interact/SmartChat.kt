@@ -1,29 +1,32 @@
 package Pinn.Interact
 
-import MySqlManager.MySqlConnMsg
-import MySqlManager.MySqlManager
 import Pinn.Core.Bot
-import Pinn.Core.Bot.UniverGroup
-import Pinn.Core.Bot.send
 import Pinn.Core.Config
-import Pinn.Util.Random.random
+import Pinn.Core.Bot.send
 import Pinn.Util.String.alike
+import Pinn.Util.Random.random
+import Pinn.Core.Bot.UniverGroup
+
 import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.message.data.content
 
+import MySqlManager.MySqlConnMsg
+import MySqlManager.MySqlManager
+import Pinn.Util.Random.rand
+
+
 object SmartChat {
+    private val connMsg = MySqlConnMsg("localhost", 3306, Config.dbUsr, Config.dbPwd)
+    private val manager = MySqlManager(connMsg, "pinn")
+    private val msgcache = mutableListOf<String>()
 
-    val connMsg = MySqlConnMsg("localhost", 3306, Config.dbUsr, Config.dbPwd)
-    val manager = MySqlManager(connMsg, "pinn")
-    val msgcache = mutableListOf<String>()
-
-    var reply = 1.0//越大越不易触发
-    var alike = 0.8//越大越不易触发
+    private var reply = 1.0//越大越易触发
+    private var alike = 0.8//越大越不易触发
 
     init {
         Bot.Instance.eventChannel.subscribeAlways<GroupMessageEvent> { e ->
 
-            (reply * 10).toInt().random {
+            rand(reply) {
 
                 val content = e.message.content
                 val table = manager.GetTable("SELECT content FROM historia ORDER BY time DESC LIMIT 200,100")

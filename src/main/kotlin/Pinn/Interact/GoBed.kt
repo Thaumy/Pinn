@@ -1,12 +1,14 @@
 package Pinn.Interact
 
-import Pinn.Core.Bot.UniverGroup
+import java.util.*
+import java.time.LocalTime
+import kotlinx.coroutines.runBlocking
+
 import Pinn.Core.Bot.send
 import Pinn.Util.File.img
 import Pinn.Util.Random.random
-import kotlinx.coroutines.runBlocking
-import java.time.LocalTime
-import java.util.*
+import Pinn.Core.Bot.UniverGroup
+
 
 object GoBed {
     //睡觉任务

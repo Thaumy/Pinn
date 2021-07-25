@@ -1,9 +1,10 @@
 package Pinn.Mod
 
 import Pinn.Core.Bot
-import kotlinx.coroutines.GlobalScope
+
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+
 
 object ReLogin {
     init {

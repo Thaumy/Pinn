@@ -33,4 +33,6 @@ fun main() {
     MiyabiDetect
 
     ReLogin
+
+    Help
 }
