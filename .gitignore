@@ -45,5 +45,8 @@ node_modules
 #proj cus
 /pinn_release
 /.pinn/config.json
+/.idea
+/.gradle
+/build
 config.json
 device.json
