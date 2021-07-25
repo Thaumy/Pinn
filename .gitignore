@@ -42,11 +42,11 @@ node_modules
 .env.local
 .env.*.local
 
-#proj cus
-/pinn_release
-/.pinn/config.json
+# project
 /.idea
 /.gradle
 /build
-config.json
+
+/release
+/.pinn/config.json
 device.json
