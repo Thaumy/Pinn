@@ -31,8 +31,7 @@ fun main() {
     RuCarousel
     SmartChat
     MiyabiDetect
+    Help
 
     ReLogin
-
-    Help
 }
