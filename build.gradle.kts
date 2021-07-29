@@ -1,15 +1,13 @@
 plugins {
-    java
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.5.0"
 }
 
-group = "H2OM"
-version = "LTS"
-val main_class = "Pinn.MainKt"
+group = "Thaumy"
+version = "2.0"
 
 tasks.withType<Jar> {
     manifest {
-        attributes["Main-Class"] = main_class
+        attributes["Main-Class"] = "Pinn.AppKt"
     }
 
     from(sourceSets.main.get().output)
@@ -21,24 +19,18 @@ tasks.withType<Jar> {
 }
 
 repositories {
-    maven("https://maven.aliyun.com/repository/public/")
-    maven("https://jitpack.io")
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    val miraiVersion = "2.0-M2"
-    // 开发时使用 mirai-core-api，运行时提供 mirai-core
-    api("net.mamoe:mirai-core-api:$miraiVersion")
-    runtimeOnly("net.mamoe:mirai-core:$miraiVersion")
-    implementation(fileTree("src/main/resources/libs"))
-    implementation("com.alibaba:fastjson:1.2.73")
-    implementation("mysql:mysql-connector-java:8.0.17")
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation(fileTree("src/main/resources"))
 
-    testCompile("junit", "junit", "4.12")
+    api("net.mamoe:mirai-core-api:2.7-M2")//dev
+    runtimeOnly("net.mamoe:mirai-core:2.7-M2")//runtime
+    implementation("com.alibaba:fastjson:1.2.76")
+    implementation("mysql:mysql-connector-java:8.0.26")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
 }
 
 tasks {
