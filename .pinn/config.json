@@ -1,0 +1,16 @@
+{
+  "account": {
+    "qid": "2335306147",
+    "pwd": "pinn_meloned405"
+  },
+  "database": {
+    "usr": "root",
+    "pwd": "65a1561425f744e2b541303f628963f8"
+  },
+
+  "groups": {
+    "melon": "955379364",
+    "univer": "1164772054"
+  },
+  "admin": ["2954746821"]
+}
